@@ -1,0 +1,15 @@
+.gallery {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+ }
+ 
+ .gallery img {
+    width: 25%;
+ }
+
+ .header-text {
+     text-align: center;
+     width: 100%;
+ }

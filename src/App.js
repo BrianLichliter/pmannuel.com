@@ -14,29 +14,32 @@ class App extends Component {
   componentDidMount() {
     const photosRef = firebase.firestore().collection('photos');
     photosRef.get().then((querySnapshot) => {
-      let newState = [];
+      let reads = [];
       querySnapshot.forEach(function(photo){
         var storage = firebase.storage();
         var pathReference = storage.ref(photo.data().filename);
-        pathReference.getDownloadURL().then(function(url) {
-          console.log(url)
+        var promise = pathReference.getDownloadURL().then(function(url) {
+          return ({id: photo.id, url: url, filename: photo.data().filename})
         })
-        newState.push({
-          id: photo.id
-        })
+        reads.push(promise);
       });
-      this.setState({
-        photos: newState
+      Promise.all(reads).then((results) => {
+        this.setState({
+          photos: results
+        })
       })
-    });
+    })
   }
 
   render() {
     return (
       <div classname="app">
-        {this.state.photos.map((photo, index) => (
-            <p>{photo.}</p>
-        ))}
+        <h1 class="header-text">pmannuel</h1>
+        <div class="gallery">
+          {this.state.photos.map((photo, index) => (
+              <img alt={photo.filename} src={photo.url}></img>
+          ))}
+        </div>
       </div>
     );
   }
