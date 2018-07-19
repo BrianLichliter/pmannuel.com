@@ -1,14 +1,11 @@
-import * as firebase from 'firebase'
-let database
-export const init = () => {
-  let config = {
+import firebase from 'firebase'
+const config = {
     apiKey: "AIzaSyDcsbxQM1Zyh5Ae8jEh33mmm5LDWW_mRuU",
     authDomain: "pmannuel-com.firebaseapp.com",
     databaseURL: "https://pmannuel-com.firebaseio.com",
     projectId: "pmannuel-com",
-    storageBucket: "",
+    storageBucket: "pmannuel-com.appspot.com",
     messagingSenderId: "334246275546"
-  }
-  firebase.initializeApp(config)
-  database = firebase.database()
-}
+};
+firebase.initializeApp(config);
+export default firebase;
