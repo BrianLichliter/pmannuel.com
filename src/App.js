@@ -33,11 +33,11 @@ class App extends Component {
 
   render() {
     return (
-      <div classname="app">
-        <h1 class="header-text">pmannuel</h1>
-        <div class="gallery">
+      <div className="app">
+        <h1 className="header-text">pmannuel</h1>
+        <div className="gallery">
           {this.state.photos.map((photo, index) => (
-              <img alt={photo.filename} src={photo.url}></img>
+              <img key={photo.id} alt={photo.filename} src={photo.url}></img>
           ))}
         </div>
       </div>

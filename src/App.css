@@ -1,12 +1,11 @@
 .gallery {
-    min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
  }
  
  .gallery img {
-    width: 25%;
+    width: 50%;
  }
 
  .header-text {
