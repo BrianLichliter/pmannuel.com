@@ -3,6 +3,7 @@ import './App.css';
 import firebase from './firebase.js';
 
 class App extends Component {
+  // initialize the state of our app
   constructor(){
     console.log("constructor");
     super();
@@ -12,17 +13,22 @@ class App extends Component {
   }; 
 
   componentDidMount() {
+    // create the reference to the 'photos' collection in our firestore
     const photosRef = firebase.firestore().collection('photos');
+    // get all 'photos' documents from the firestore
     photosRef.get().then((querySnapshot) => {
       let reads = [];
+      // extract meta data for each 'photos' document
       querySnapshot.forEach(function(photo){
         var storage = firebase.storage();
         var pathReference = storage.ref(photo.data().filename);
+        // convert the filenames into downloadURLs
         var promise = pathReference.getDownloadURL().then(function(url) {
           return ({id: photo.id, url: url, filename: photo.data().filename})
         })
         reads.push(promise);
       });
+      // wait till all the downloadURL calls return and then set the state
       Promise.all(reads).then((results) => {
         this.setState({
           photos: results
