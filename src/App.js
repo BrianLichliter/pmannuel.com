@@ -60,7 +60,7 @@ class App extends Component {
         var pathReference = storage.ref(photo.data().filename);
         // convert the filenames into downloadURLs
         var promise = pathReference.getDownloadURL().then(function(url) {
-          return ({id: photo.id, src: url, filename: photo.data().filename, width: 1, height: 1})
+          return ({id: photo.id, src: url, filename: photo.data().filename, width: photo.data().width, height: photo.data().height})
         })
         reads.push(promise);
       });
