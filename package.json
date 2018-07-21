@@ -6,6 +6,9 @@
     "firebase": "^5.2.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-images": "^0.5.19",
+    "react-measure": "^2.0.2",
+    "react-photo-gallery": "^6.0.28",
     "react-scripts": "1.1.4"
   },
   "scripts": {

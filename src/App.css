@@ -1,14 +1,4 @@
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
- }
- 
- .gallery img {
-    width: 50%;
- }
-
- .header-text {
+.header-text {
      text-align: center;
      width: 100%;
  }
