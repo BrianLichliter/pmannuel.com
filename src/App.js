@@ -93,9 +93,6 @@ class App extends Component {
             if (this.state.width >= 1024){
               columns = 3;
             }
-            if (this.state.width >= 1700){
-              columns = 4;
-            }
             return  <div ref={measureRef}>
                       <h1 className="header-text">pmannuel</h1>
                       <Gallery photos={this.state.photos} columns={columns} onClick={this.openLightbox}/>
