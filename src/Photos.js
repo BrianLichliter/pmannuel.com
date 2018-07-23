@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
+import './Photos.css';
 import firebase from './firebase.js';
 import Gallery from 'react-photo-gallery';
 import Measure from 'react-measure';
 import Lightbox from 'react-images';
 
-class App extends Component {
+class Photos extends Component {
   // initialize the state of our app
   constructor(){
     console.log("constructor");
@@ -79,7 +79,7 @@ class App extends Component {
     if (this.state.photosLoaded) {
       return (
         // measure the side of the window
-        <Measure className="app" bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
+        <Measure className="photos" bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
           {
           // set the number of columns based on the width of the window
           ({measureRef}) => {
@@ -117,4 +117,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Photos;
