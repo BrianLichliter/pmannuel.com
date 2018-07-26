@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './Photos.css';
-import firebase from './firebase.js';
+import './PhotoGrid.css';
+import firebase from '../firebase/firebase.js';
 import Gallery from 'react-photo-gallery';
 import Measure from 'react-measure';
 import Lightbox from 'react-images';
 
-class Photos extends Component {
+class PhotoGrid extends Component {
   // initialize the state of our app
   constructor(){
     console.log("constructor");
@@ -94,7 +94,6 @@ class Photos extends Component {
               columns = 3;
             }
             return  <div ref={measureRef}>
-                      <h1 className="header-text">pmannuel</h1>
                       <Gallery photos={this.state.photos} columns={columns} onClick={this.openLightbox}/>
                       <Lightbox images={this.state.photos}
                                 onClose={this.closeLightbox}
@@ -117,4 +116,4 @@ class Photos extends Component {
   }
 }
 
-export default Photos;
+export default PhotoGrid;
