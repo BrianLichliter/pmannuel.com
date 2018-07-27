@@ -15,8 +15,8 @@ function Navbar(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" color="default">
-        <Toolbar>
+      <AppBar position="sticky" color="default">
+        <Toolbar variant="dense">
           <Typography variant="title" color="inherit">
             pmannuel
           </Typography>
